@@ -1,0 +1,532 @@
+question,answer,url
+I want to set up an automation that sends a Slack notification to a specific channel when a ticket's status is updated to 'Pending'. Can you guide me through the process?,"Sure! Here's a step-by-step guide to set up the automation you're looking for:
+
+1. **Select Trigger**: Choose 'Request Update' as the trigger, as you want the automation to activate when a ticket's status is updated.
+2. **Set Conditions**: Add a condition to check if the status is set to 'Pending'.
+3. **Choose Delay**: You can set a delay of 0 minutes, as you want the action to occur immediately when the conditions are met.
+4. **Choose Action**: Select 'Send Message' as the action and choose the Slack channel you want to send the notification to. You can also customize the message to include relevant ticket details.
+5. **Map Collections**: Map the automation to the relevant collection(s) to ensure it's applied to the desired tickets.
+
+By following these steps, you should be able to set up the desired automation. If you have any further questions or need assistance with a different use case, feel free to reach out!",https://docs.clearfeed.ai/clearfeed-help-center/clearfeed-helpdesk/automations
+"I'm trying to integrate ClearFeed with an external ticketing system and create a collection for customer support. Can you guide me through the process, including setting up responders, request channels, and the triage channel?","Sure, I'd be happy to help you with the integration process! Here's a step-by-step guide to integrate ClearFeed with an external ticketing system and create a collection for customer support:
+
+1. **Integrate ClearFeed with your Slack Workspace**: Before you begin, ensure that you have integrated your Slack Workspace with ClearFeed. This integration is crucial for seamless communication and ticket management.
+
+2. **Set Product Edition to ""External""**: Navigate to [Product Editions](https://web.clearfeed.app/settings/product-editions) and set the product edition to ""External."" This setting ensures that ClearFeed is configured for external ticketing.
+
+3. **Create a Collection**:
+   - Navigate to [Collections](https://web.clearfeed.app/collections) from the side navigation bar.
+   - Click on the `Add new Collection` button on the bottom-left of the page.
+
+4. **Choose Responders**:
+   - Select support team members as Responders. You can configure Slack users from specific domains or add additional responders if they are not from a common domain.
+   - Check auto-assignment to first-responders `ON` to ensure efficient ticket assignment.
+
+5. **Add Request Channels**:
+   - Add the **Request channels** on which you plan to provide support to customers. These channels are where customers will interact with your support team.
+   - All public Slack channels can be added from the web app.
+   - Private Slack channels can be added by typing `/invite @Clearfeed` on the Slack channels. Note that private channels can only be added after a Collection is created.
+
+6. **Configure Triage Channel**:
+   - Add a [**Triage channel** ](/clearfeed-help-center/manage-requests/triage-channels)for the support team to work from on Slack. This channel is where your support team will manage and respond to tickets.
+   - You can select `Create new channel` or `Select existing` option, depending on your preference.
+
+7. **Set Up Ticketing Integration**:
+   - Under **Ticketing**, select your external ticketing system (e.g., Zendesk, Freshdesk, Intercom, etc.) and choose the trigger mode for ticket creation. This integration ensures that tickets created in ClearFeed are synced with your external ticketing system.
+   - The trigger mode can be an emoji (e.g., 🎟️) applied to the thread or tickets can be auto-created on every new message on the request channel.
+
+8. **Edit Workflows (Optional)**:
+   - You can edit an existing [workflow](/clearfeed-help-center/clearfeed-helpdesk/workflows) to send a notification to the corresponding triage channel if there is no response to a request for a specified time (e.g., 60 minutes). This is useful for keeping track of unanswered requests.
+
+9. **Set Up Welcome Message (Optional)**:
+   - Set up a custom [Welcome message ](/clearfeed-help-center/clearfeed-helpdesk/welcome-messages)for this particular collection to greet customers and provide initial instructions.
+
+Once you have completed these steps, you will have successfully integrated ClearFeed with an external ticketing system and created a collection for managing customer support requests. The bidirectional sync between Slack and the external ticketing system ensures that all interactions and ticket updates are synchronized, providing a seamless support experience for your customers.
+
+If you have any further questions or need assistance with specific aspects of the integration, feel free to ask! I'm here to help you make the most of ClearFeed's features.",https://docs.clearfeed.ai/clearfeed-help-center/getting-started/for-customer-support/integrate-slack-and-external-ticketing-system
+"I'm trying to integrate ClearFeed with Jira Service Management (JSM) for our support team. Can you guide me through the process, including the installation and configuration steps?","Absolutely! Here's a step-by-step guide to integrate ClearFeed with JSM and configure the necessary settings:
+
+1. **Install ClearFeed from the Atlassian Marketplace**:
+   - Only Site Admins on Atlassian can perform this integration. Ensure you have the required authorization.
+   - Go to the Atlassian marketplace and search for ClearFeed. You can find it by clicking 'Find new apps'.
+   - Click on the ClearFeed card in the search results and select 'Get App'.
+   - Confirm the installation by selecting 'Get it now'.
+   - After the success message, click 'Configure' or go to 'Manage app' > 'User-installed apps' > 'Configure'.
+   - Sign in to ClearFeed and click 'Finish installation' to complete the process.
+
+2. **Enable Ticketing in ClearFeed**:
+   - Open the ClearFeed web application and navigate to the Collection where you want to enable ticketing.
+   - Click on the 'Settings' tab and expand the 'Ticketing Settings' section.
+   - Enable the toggle and choose 'JSM' as the 'Ticketing Integration'.
+   - Select the Trigger Mode: 'Emoji' (Manual) or 'Automatic'.
+   - Click the ⚙️ icon to open the JSM setup modal. Here, select the default JSM project and issue type, then click 'Save'.
+
+3. **Configure Sync Settings**:
+   - Access Sync Settings by navigating to 'Objects' in the ClearFeed web app.
+   - Choose your 'Message Sync Mode' and 'Status Sync Mode' for all new tickets.
+   - For individual tickets, you can configure different sync settings. Responders can do this from the request channel in Slack.
+
+The integration offers the following functionalities:
+- Replies on the Slack thread and the JSM ticket are synced bidirectionally.
+- The Slack thread displays the Title, ID, URL, and Status of the JSM Ticket.
+- Status changes from JSM are reflected on Slack.
+- ClearFeed adds labels to the JSM ticket: 'slack-channel-name' and 'clearfeed'.
+- Public comments from the triage channel are synced to the JSM ticket.
+- Status change updates are posted on the Slack thread when the JSM ticket is moved to Solved status.
+
+Please let me know if you have any further questions or need assistance with any specific aspect of the integration. I'm here to help!",https://docs.clearfeed.ai/clearfeed-help-center/integrations/jira-service-management
+"I'm trying to set up ticketing for my internal helpdesk, but I'm not sure how to enable it. Can you guide me through the process?","Sure! Here's a step-by-step guide to enable ticketing for your internal helpdesk: 
+
+1. Navigate to your preferred collection.
+2. Click on 'Settings' and then select 'Ticketing Settings'.
+3. Choose 'ClearFeed' as the ticketing integration.
+4. Decide on the trigger mode: either emoji-based or automatic. If you choose emoji-based, select the emoji that will trigger ticket creation (the default is 🎫).
+5. Configure the form settings: you can choose to consider all forms or specific forms for ticket creation.
+
+By following these steps, you'll be able to set up ticketing for your internal helpdesk and start creating tickets using the chosen method.",https://docs.clearfeed.ai/clearfeed-help-center/clearfeed-helpdesk/clearfeed-ticketing
+"I'm trying to integrate ClearFeed with Microsoft Teams, but I'm not sure if I have the right permissions. Can you guide me through the initial setup process, including the required permissions and steps to follow?","To integrate ClearFeed with Microsoft Teams, you'll need to ensure the following permissions and setup steps:
+
+**Permissions:**
+- An Azure organization admin must authorize ClearFeed via the OAuth flow. This is a one-time activity.
+- By default, only MS Teams admins can install apps or bots like ClearFeed. However, this can be configured based on your account settings.
+
+**Setup Steps:**
+1. Integrate ClearFeed with MS Teams: Follow the instructions in our help center to connect ClearFeed with your MS Teams account.
+2. Install ClearFeed on Teams: Install the ClearFeed app on your MS Teams workspace.
+3. Set up Request Management: Configure ClearFeed to manage requests and tickets from MS Teams.
+4. Explore Workflows: Learn about the various workflows and automation options available with ClearFeed and MS Teams.
+
+For more detailed instructions, please refer to our help center articles on [integrating ClearFeed with MS Teams](https://docs.clearfeed.ai/clearfeed-help-center/getting-started/using-clearfeed-with-microsoft-teams/integrate-clearfeed-with-ms-teams), [installing ClearFeed on Teams](https://docs.clearfeed.ai/clearfeed-help-center/getting-started/using-clearfeed-with-microsoft-teams/installing-clearfeed-on-teams), and [setting up request management](https://docs.clearfeed.ai/clearfeed-help-center/getting-started/using-clearfeed-with-microsoft-teams/request-management-on-ms-teams).
+
+If you have any further questions or need assistance with the integration, feel free to reach out to our support team.",https://docs.clearfeed.ai/clearfeed-help-center/getting-started/using-clearfeed-with-microsoft-teams
+"I'm trying to set up the Virtual Agent and Agent Assistant features on ClearFeed, but I'm not sure how to activate them. Can you guide me through the process, including the different settings and options available?","Sure! Here's a step-by-step guide to activating the Virtual Agent and Agent Assistant features on ClearFeed: 
+
+1. **Add and index your knowledge sources**: Before you can use the Virtual Agent or Agent Assistant, you'll need to add your relevant knowledge sources to ClearFeed and ensure they are indexed. You can do this by navigating to the ClearFeed web app and following the steps outlined in the [indexing knowledge sources](https://docs.clearfeed.ai/clearfeed-help-center/answers/indexing-knowledge-sources) documentation.
+
+2. **Navigate to Collections Settings**: Once your knowledge sources are added and indexed, go to the Collections Settings for the desired Collection. Scroll down to the **Answers** section to enable it.
+
+3. **Select Virtual Agent or Agent Assistant**: In the Answers section, you'll have the option to select either the `Virtual Agent` or the `Agent Assistant`. Note that you cannot enable both for a single collection. The Virtual Agent responds directly in the request channel, while the Agent Assistant responds on the triage channel.
+
+4. **Choose Response Mode**: You can choose between **AI-generated answers**, **Search Results**, or **Both**. This setting determines how the Virtual Agent or Agent Assistant will respond to user queries.
+
+5. **Link Knowledge Sources**: You'll need to link this Collection with the required Knowledge Sources by choosing the appropriate tags. At least one Knowledge Source must be associated with generating answers.
+
+6. **Set Trigger Mode (Virtual Agent only)**: For the Virtual Agent, you can choose between **Manual** and **Automatic** trigger modes. Manual mode requires an emoji (🔍) to be applied to the thread for the Virtual Agent to respond, while Automatic mode generates an answer for all requests on a thread.
+
+7. **Enable Bot Interactions**: You can also enable Bot Interactions, which allow you to tag the ClearFeed bot in the thread to get GPT-Powered Answers and search results based on the conversation and knowledge sources. Learn more about Bot Interactions [here](https://docs.clearfeed.ai/clearfeed-help-center/answers/bot-interactions).
+
+8. **Finalize and save settings**: Once you've made your selections, finalize and save your settings. This will activate the Virtual Agent or Agent Assistant across all request channels in this Collection.
+
+I hope this guide helps you set up the Virtual Agent and Agent Assistant features on ClearFeed. If you have any further questions or need more assistance, please don't hesitate to ask!",https://docs.clearfeed.ai/clearfeed-help-center/answers/virtual-agent-in-request-channel
+"I'm trying to set up a form for ticket creation in ClearFeed, but I'm not sure how to make certain fields non-editable by requesters. Can you guide me through the process?","Sure, I'd be happy to help you with setting up the form for ticket creation in ClearFeed! Here's a step-by-step guide:
+
+1. Navigate to the ClearFeed web console and click on 'Objects' in the sidebar.
+2. Click on 'Import from ClickUp' to view your Lists in the format: Space Name > List Name.
+3. You'll see various fields like Title, Description, Assignees, Due Date, and Priority. These fields can be customized to suit your needs.
+4. To make a field non-editable by requesters, click on the field and select 'Hide' from the field properties. This will ensure that requesters cannot modify the field during ticket creation.
+5. You can also set default values for hidden fields, which will be automatically populated when a ticket is created.
+
+By following these steps, you can create a form with specific fields that are non-editable by requesters, allowing you to maintain control over the ticket creation process. If you have any further questions or need additional assistance, feel free to reach out!",https://docs.clearfeed.ai/clearfeed-help-center/integrations/clickup/forms
+I want to add a private Slack channel to a collection in ClearFeed. What steps do I need to follow?,"To add a private Slack channel to a collection in ClearFeed, follow these steps:
+
+1. Go to the channel you wish to monitor.
+2. Add the ClearFeed bot by typing `/invite @clearfeed`.
+3. Select the option to configure the channel as a Request Channel.
+4. Choose the channel owner and the collection to which you want to add the channel.
+5. Click on 'Start Monitoring' to begin monitoring the channel.
+
+Note: A channel owner can move the channel between collections and transfer ownership. They will also receive notifications if the channel experiences any issues, such as the ClearFeed bot being removed or the channel being taken out of a collection.",https://docs.clearfeed.ai/clearfeed-help-center/account-setup/manage-request-channels
+How can I get a detailed report on the performance of our support team and the virtual agent?,"To get a detailed report on the performance of your support team and the ClearFeed Virtual Agent, you can follow these steps:
+
+1. Navigate to the ClearFeed reporting section, which can be accessed from the ClearFeed dashboard or the navigation menu.
+2. In the reporting section, you will find various tabs and options to filter and visualize your data. Here's a breakdown of the key sections:
+   - **Reporting Overview**: This section provides a high-level summary of your support operations, including request load, response times, and service level management. It's a good starting point to get an overall understanding of your support performance.
+   - **Metrics Definitions - Request**: This section provides detailed definitions and explanations of the metrics related to your support team's performance. It helps you understand how ClearFeed calculates and presents various metrics, such as response time, resolution time, and ticket volume.
+   - **Metrics Definitions - Virtual Agent**: Similar to the previous section, this section provides definitions and explanations of metrics related to the ClearFeed Virtual Agent. It helps you understand how the virtual agent is performing, including its response accuracy, response time, and customer satisfaction scores.
+   - **Data Visualization**: This section allows you to create custom reports and visualizations based on your specific requirements. You can filter data by various parameters, such as channel, responders, channel owners, collections, and assignees. You can also choose the time period for the report and select the type of visualization (e.g., bar chart, line chart, table).
+
+By exploring these sections and customizing your reports, you can gain valuable insights into the performance of your support team and the ClearFeed Virtual Agent. This information can help you identify areas for improvement, optimize your support processes, and enhance the overall customer experience.",https://docs.clearfeed.ai/clearfeed-help-center/clearfeed-helpdesk/reporting
+"I'm an existing ClearFeed-Slack user and want to integrate with MS Teams, but I'm using the same email domain for both platforms. What should I do?","If you're an existing ClearFeed-Slack user and want to integrate with MS Teams, but you're using the same email domain for both platforms, you'll need to reach out to our dedicated support team at [support@clearfeed.ai](mailto:support@clearfeed.ai) or connect with us directly on Slack or Intercom. Our team will assist you in creating a new account from our backend, as attempting to create a new account from your existing ClearFeed account for MS Teams integration will not be successful due to the email domain configuration.",https://docs.clearfeed.ai/clearfeed-help-center/getting-started/using-clearfeed-with-microsoft-teams/integrate-clearfeed-with-ms-teams/for-existing-clearfeed-less-than-greater-than-slack-users
+"I'm trying to integrate my Freshdesk account with ClearFeed and index my knowledge source, but I'm on the Free plan. What should I do?","Hello there! 
+
+To index your Freshdesk knowledge source, you'll need to upgrade from the Free plan. This is because making API calls to Freshdesk is unsupported in the Free plan, which is necessary for the integration process. 
+
+You can find detailed steps for integrating Freshdesk with ClearFeed [here](https://clearfeed-help-center.ai/integrations/freshdesk#integrate-freshdesk). Once the integration is complete, you can follow the steps outlined in the document to add and test your knowledge source. 
+
+If you have any further questions or need assistance with the integration process, feel free to reach out to our support team at support@clearfeed.ai. We're here to help!",https://docs.clearfeed.ai/clearfeed-help-center/answers/indexing-knowledge-sources/freshdesk
+"I'm trying to understand how the ClearFeed Email Ticketing system works. If I send a support request via email, will my message be visible to the entire Slack channel, or is it directed to a specific agent? Also, how do I ensure that my message is not shared with other users?","When you send a support request via email, it is directed to a dedicated Slack channel. This ensures that your message is not visible to the entire Slack workspace but is shared with the relevant support team. 
+
+To maintain privacy, you can configure the triage channel to only show tickets that have been converted from requests. This way, your email request will not be automatically shared with the entire channel. Instead, it will be visible only after an agent converts it into a ticket. 
+
+Additionally, you can delete emails from the triage channel if they are recognized as spam. This will prevent any further replies from being synced back to Slack, ensuring that sensitive information is not inadvertently shared.",https://docs.clearfeed.ai/clearfeed-help-center/create-requests/email
+"I want to file a ticket using the slash command in Slack, but I'm not sure if I have the 'Request Routing' feature enabled. Can you guide me through the process of enabling it and then filing a ticket?","To enable the 'Request Routing' feature in your DM Collection, follow these steps:
+
+1. Navigate to the ClearFeed Help Center by clicking [here](https://docs.clearfeed.ai/clearfeed-help-center/create-requests/using-clearfeed-slack-app#request-routing).
+2. Follow the instructions provided in the documentation to enable 'Request Routing'.
+
+Once 'Request Routing' is enabled, you can file a ticket using the slash command by following these steps:
+
+1. In the Slack message box, type the command **/File a ticket**.
+2. Click on ClearFeed's 'File a ticket' shortcut or hit Enter.
+3. Select the relevant form from the dropdown.
+4. Enter the required details.
+5. Your ticket will be created, and you can track and update it from the **Messages** section in the ClearFeed Slack App.
+
+Please note that Salesforce, Jira, JSM, and Linear ticketing are not currently supported with this method. If you require support for these systems, you can contact us at support@clearfeed.ai.",https://docs.clearfeed.ai/clearfeed-help-center/create-requests/slash-command-shortcut-file-a-ticket
+I've authorized and integrated ClearFeed with Microsoft Teams. How do I install the ClearFeed app on my Teams account and add it to specific teams?,"To install the ClearFeed app on your Teams account and add it to specific teams, follow these steps:
+
+1. After authorization is complete, you'll be redirected to the ClearFeed web application. Download the ClearFeed app package from the modal that appears.
+
+2. Once the download is finished, log in to [MS Teams](https://teams.microsoft.com/_).
+
+3. Navigate to `Apps` -> `Manage your apps` -> `Upload an app`.
+
+4. Select `Upload app to organization's app catalog` and upload the ClearFeed app package.
+
+5. After the upload, you'll be redirected to your app catalog, where you'll find the ClearFeed app installed. If not, go to `Apps` -> `Built for your organization` to locate it.
+
+6. From the ClearFeed app's card, click on `Add` and select the specific teams where you want to add ClearFeed.
+
+Now you're all set to monitor conversations from all public channels within the selected teams.",https://docs.clearfeed.ai/clearfeed-help-center/getting-started/using-clearfeed-with-microsoft-teams/installing-clearfeed-on-teams
+How do I add new users to ClearFeed and assign them the appropriate roles?,"To add new users to ClearFeed and assign them the appropriate roles, follow these steps:
+
+1. Ensure the user is part of the Slack workspace before inviting them to ClearFeed.
+2. Head over to the [Users section](https://web.clearfeed.app/settings/users) on the ClearFeed web app.
+3. Click on **Invite Users** and enter the Email ID of the user.
+4. Choose the relevant [User Role](/clearfeed-help-center/account-setup/manage-users#user-roles-1).
+
+- **Admin**: Admins have full access to various settings, including configurations, integrations, and user invitations. They can create and modify collections, set up and adjust workflows, and establish and revise SLA policies and business hours.
+
+- **User**: Users can modify settings for their own collections but cannot access or adjust configurations for other collections. They can set up and adjust workflows but cannot invite new users or access configuration settings.
+
+- **Agent**: Agents are relevant for the Internal Helpdesk product edition, where ClearFeed is used as a ticketing system. Users and Admins need to be designated as Agents to work from the triage channel and respond using the ClearFeed web application.
+
+5. You can invite multiple users at once by clicking on Add Invite.
+
+Note: Only Admins can remove existing users or change their roles. Admins can also see which users are invited.",https://docs.clearfeed.ai/clearfeed-help-center/account-setup/manage-users
+"I've added a knowledge source to ClearFeed, but it's not showing up as indexed. What should I do?","If your knowledge source is not showing up as indexed, there are a few steps you can take to resolve the issue. First, check the status of your knowledge source. If it is in the 'Initiated' or 'Indexing' state, you can click on the 'Refresh Status' button after a few minutes to see if the status has been updated. If the status is 'Failed', you should try re-indexing the knowledge source. If the problem persists, contact the ClearFeed support team at support@clearfeed.ai or via Slack/Intercom. It's important to note that information from knowledge sources that have been successfully indexed at least once will still be used for generating responses, even if their current status is not 'Indexed'.
+
+To test GPT-powered answers, you must ensure that all necessary knowledge sources have been added and that their current status is 'Indexed'. You can navigate to the KBs section from the navigation bar, click on the 'Test' tab, select the appropriate tags for the knowledge sources you want to test, enter your question, and click 'Run' to begin the test. The generated answer and search results will be displayed below your question.",https://docs.clearfeed.ai/clearfeed-help-center/answers/managing-knowledge-sources
+How do I assign a request to a specific team from the Triage channel?,"To assign a request to a specific team from the Triage channel, follow these steps:
+
+1. For any request on the triage channel, click on **Edit**.
+2. Under the **Select Team** option, choose the team to assign this request.
+3. Members of the Slack user group will get a notification from ClearFeed about the request being assigned.
+
+For more information on Team Assignment, please refer to the [documentation](https://web.clearfeed.app/settings/users).",https://docs.clearfeed.ai/clearfeed-help-center/clearfeed-helpdesk/team-assignment
+"I'm trying to integrate my Confluence account with ClearFeed, but I'm not sure how to do it. Can you guide me through the process?","Sure! Here's a step-by-step guide to help you integrate your Confluence account with ClearFeed:
+
+1. **Prerequisite - Integrating with Confluence**:
+   - Navigate to the ClearFeed web app and go to the 'Settings' section.
+   - Select the 'Integrations' tab and locate 'Confluence' from the list of available integrations.
+   - Click the 'Connect' button and enter the following details:
+     - Confluence subdomain
+     - Email address of the Confluence administrator
+     - Your Confluence email and API Key (use your PAT - personal access token)
+   - After entering these details, click 'Connect' again.
+   - A successful integration will redirect you back to the ClearFeed web app with a confirmation message.
+
+2. **Indexing a Confluence Knowledge Source**:
+   - Navigate to the 'KBs' section and select 'Confluence' from the 'Add Knowledge Source' dropdown.
+   - Provide the following details:
+     - Name: A title for the knowledge source
+     - Tags: To categorize and structure the knowledge source
+     - Spaces: Choose the Confluence spaces to index (all spaces or specific spaces)
+     - Excluded URL: URLs to be omitted during indexing (including all subsidiary URLs)
+     - Auto Reindex Regularly: Enable this to reindex the knowledge source once every 24 hours
+   - After saving, the knowledge source will start indexing or will be picked soon.
+
+3. **Reindexing Confluence Docs**:
+   - To reindex Confluence documents, manually reindex the knowledge source by clicking the 'Reindex' button next to it.
+
+For more information on managing knowledge sources and enabling GPT-powered answers, refer to the following resources:
+
+- [Managing & Testing](/clearfeed-help-center/answers/managing-knowledge-sources)
+- [Virtual Agent & Agent Assistant](/clearfeed-help-center/answers/virtual-agent-in-request-channel)
+
+Feel free to reach out if you have any further questions or need additional assistance with the integration process!",https://docs.clearfeed.ai/clearfeed-help-center/answers/indexing-knowledge-sources/confluence
+How can I filter and search for specific requests on the ClearFeed dashboard?,"The ClearFeed dashboard offers various filtering and search options to help you manage and find specific requests:
+
+**Filtering Requests:**
+- You can filter requests based on criteria such as request status, assignee, SLA breach status, time duration, and custom fields.
+- Use the 'Requests with Tickets' filter to see only tickets.
+- Use the 'Involves' filter to view requests where your team members and users are included, including request creators, replied users, or mentioned users.
+- Use the 'Mentions' filter to find requests where your team members and users are tagged.
+
+**Display Options:**
+- Click on 'Display' on the right side of the dashboard to group requests by assignee or status, add/remove columns for the list view, and access additional parameters like First Assignment Time and Last Assignment Time for ClearFeed Requests and Tickets.
+
+**Searching Requests:**
+- You can search for any request using the ClearFeed ID (CF-ID) from the dashboard by clicking on the search bar. You can find the CF-ID of a request from Slack or the web app.
+- A pro tip is to use the keyboard shortcut Ctrl + K (Command + K on Mac OS) to quickly open the search bar.
+
+**Note:** ClearFeed is working on adding the ability to search using keywords and phrases, which will further enhance the search functionality.",https://docs.clearfeed.ai/clearfeed-help-center/manage-requests/clearfeed-web-application
+"I've integrated my Zendesk account with ClearFeed, but I'm unsure how to index my knowledge source. Can you guide me through the process?","Sure, here's a step-by-step guide to index your Zendesk knowledge source in ClearFeed:
+
+1. Navigate to the [KBs](https://web.clearfeed.app/knowledge-sources) section and select `Zendesk` from the ""Add Knowledge Source"" dropdown.
+2. Provide the following details:
+   - **Name**: A title for the knowledge source.
+   - **Tags**: Customizable identifiers for categorization.
+   - **Auto Reindex Regularly**: Enable for automatic reindexing every 24 hours.
+3. Save your changes, and the knowledge source will start indexing (status: **Indexing**) or will be picked soon (status: **Initiated**).
+4. For Zendesk documents, manually reindex by clicking ""Reindex"" next to the knowledge source.
+
+For more details on managing knowledge sources, refer to [this document](/clearfeed-help-center/answers/managing-knowledge-sources).
+
+Additionally, to enable GPT-Powered Answers in the collection settings, follow the steps outlined in [this document](/clearfeed-help-center/answers/managing-knowledge-sources).",https://docs.clearfeed.ai/clearfeed-help-center/answers/indexing-knowledge-sources/zendesk
+What is the difference between the 'Time to First Response' and 'Response Time' metrics in ClearFeed's reporting system?,"The 'Time to First Response' metric measures the average time interval between the request being raised and the first response by a responder. It focuses on the initial response and is calculated for each request separately. On the other hand, the 'Response Time' metric calculates the average time interval between every message by a requestor and the next message by a responder. It includes the time to the first response and subsequent responses, and the calculation is done across all responses in a request. In summary, 'Time to First Response' focuses on the initial response, while 'Response Time' considers all responses in a request.",https://docs.clearfeed.ai/clearfeed-help-center/clearfeed-helpdesk/reporting/metric-definitions
+"I'm trying to set up custom fields for our support tickets, but I'm not sure how to create and use them. Can you guide me through the process, including how to set up forms and use ClearFeed ticketing?","Sure, I'd be happy to help you with setting up custom fields for your support tickets. Here's a step-by-step guide:
+
+1. **Create Custom Fields**:
+    - Navigate to the 'Objects' section in the ClearFeed dashboard or go to <https://web.clearfeed.app/objects>.
+    - Select 'Fields' from the horizontal navigation bar.
+    - Click on 'Create New Field' to start creating a new custom field.
+    - Enter a name for your field and select the field type (Single Select, Multi Select, Text, Date, or Number).
+    - For Text fields, specify the input type (Single-line or Multi-line) and the character limit.
+    - For Single Select or Multi Select fields, add the available options.
+    - Click 'Save' to create the custom field.
+
+2. **Use Custom Fields**:
+    - Once custom fields are defined, you can use them against any request on ClearFeed.
+    - On the Collections dashboard, you can choose and add field values, filter by custom field values, and manage field values through the request detail view.
+
+3. **Set Up Forms**:
+    - Learn how to create and use forms by following the steps in the [Forms](/clearfeed-help-center/clearfeed-helpdesk/objects-fields-and-forms/clickup/forms) section of the ClearFeed Help Center.
+
+4. **Configure ClearFeed Ticketing**:
+    - Follow the steps in the [ClearFeed Ticketing](/clearfeed-help-center/clearfeed-helpdesk/clearfeed-ticketing) section to set up and use ClearFeed ticketing.
+
+For more detailed instructions and visual guidance, you can refer to the ClearFeed Help Center articles linked in the document. Additionally, the document provides answers to some frequently asked questions about custom fields, which you can use for further clarification.",https://docs.clearfeed.ai/clearfeed-help-center/clearfeed-helpdesk/custom-fields
+"I've added the ClearFeed bot to my MS Teams account, but I'm not sure how to set up monitoring for specific channels. Can you guide me through the process of creating a collection and adding channels to monitor?","Sure, I'd be happy to help you with setting up ClearFeed for MS Teams! Here's a step-by-step guide:
+
+1. **Create a Collection**:
+   - Navigate to the ClearFeed web app at <https://web.clearfeed.app/>.
+   - In the bottom-left section, click on 'Add a new Collection'.
+   - Enter a relevant name for your collection.
+   - Configure 'Responder Settings' by choosing one of the following options:
+     - Enter a list of users: If specific people are considered responders.
+     - Enter email domains: This makes anyone in the MS Teams account with the entered email domain a responder (ideal for customer support).
+     - None: No responders will be set.
+   - In 'Request Channels', enter the channels you want to monitor under the collection. It's recommended to add at least one channel.
+   - Toggle on 'Auto-Assign' if you want to assign a ClearFeed request to the first responder.
+
+2. **Add Channels to Monitor**:
+   - After creating the collection, you can add the channels you want to monitor. This is done by entering the channel names in the 'Request Channels' section.
+
+By following these steps, you can effectively set up ClearFeed to monitor specific channels in MS Teams. If you have any further questions or need additional assistance, feel free to ask!",https://docs.clearfeed.ai/clearfeed-help-center/getting-started/using-clearfeed-with-microsoft-teams/request-management-on-ms-teams
+"I'm trying to create a form for HubSpot ticketing in ClearFeed, but I'm not sure how to add fields. Can you guide me through the process of adding fields to the form?","Sure! Here's a step-by-step guide to adding fields to your HubSpot ticketing form in ClearFeed:
+
+1. Navigate to the **Objects** section on the ClearFeed web console and toggle HubSpot Ticketing under Objects.
+2. Click on **Add Form** to create a new form or edit the **Default HubSpot Ticket Form**.
+3. Provide a suitable name for the form. This name will be visible to requestors when they create a ticket.
+4. By default, the form will include the 'Contact Email', 'Ticket Description', and 'Ticket Name' fields, which are pre-filled by ClearFeed. These fields are non-removable and need to be a part of the form.
+5. You can unhide these fields by clicking on the eye icon, allowing users to edit them while creating the ticket.
+6. Save your configuration and move on to the 'Edit Form' section if you want to allow users to modify fields after ticket creation.
+
+For more information on field properties and configuration, refer to the ClearFeed Help Center: [HubSpot Field Properties](https://docs.clearfeed.ai/clearfeed-help-center/integrations/hubspot/forms#hubspot-field-properties).
+
+If you have any further questions or need assistance with ClearFeed, feel free to reach out to our support team at support@clearfeed.ai.",https://docs.clearfeed.ai/clearfeed-help-center/integrations/hubspot/forms
+I want to set up ClearFeed for internal support with an integration to Zendesk. Can you provide me with the relevant guide?,"For setting up ClearFeed for internal support with an integration to Zendesk, you can follow the guide here: [Slack <> Ticketing Integration](https://clearfeed-help-center/getting-started/for-internal-support/integrate-slack-and-internal-ticketing-systems). This guide will provide you with the necessary steps to integrate ClearFeed with Zendesk and other ticketing systems for internal support. The information in this guide was last updated a month ago.",https://docs.clearfeed.ai/clearfeed-help-center/getting-started/for-internal-support
+How can I ensure that my internal team's conversations about a ticket remain private and not visible to the customer?,"To keep your internal team's conversations private and hidden from the customer, you can utilize the internal comments feature on the triage channel. Simply prefix your messages with the 🔒emoji to ensure they remain confidential and are not visible to the requestor. This allows your team to collaborate and discuss ticket-related matters without exposing sensitive information to the customer. For more information on using internal comments, refer to this [link](/clearfeed-help-center/manage-requests/triage-channels/for-internal-helpdesk#using-internal-comments-on-the-triage-channel).
+
+Additionally, if you want to share the ticket with an engineering integration like Jira, GitHub, or Linear, you can use the 'More Actions' feature. This allows you to file tasks or link existing tasks from these external tools, providing better tracking and visibility. Comments from the triage channel thread will be synced with the linked task, ensuring everyone is on the same page. For more details on 'More Actions', check out this [link](/clearfeed-help-center/manage-requests/triage-channels/for-internal-helpdesk#triage-more-actions).
+
+Remember, the triage channel is a powerful tool for managing tickets and facilitating internal communication. By using internal comments and 'More Actions', you can maintain privacy and efficiently collaborate on ticket-related tasks.",https://docs.clearfeed.ai/clearfeed-help-center/manage-requests/triage-channels/for-internal-helpdesk
+"I'm trying to set up additional knowledge sources for our ClearFeed account, but I'm not sure how to do it. Can you provide step-by-step instructions for setting up SharePoint as a knowledge source?","Sure! Here's a step-by-step guide to set up SharePoint as a knowledge source for your ClearFeed account:
+
+1. **Go to the KBs section on the ClearFeed web app**: Navigate to the [KBs](https://web.clearfeed.app/knowledge-sources) section on the ClearFeed web app. This is where you can manage your knowledge sources.
+
+2. **Click on 'Add Knowledge Source' and select SharePoint**: In the KBs section, click on the 'Add Knowledge Source' button. From the options, select 'SharePoint' as your desired knowledge source.
+
+3. **Follow the steps provided by Carbon**: After selecting SharePoint, you'll be guided through the setup process by Carbon AI. Follow the instructions provided to complete the integration. This may involve connecting your SharePoint account and selecting the specific files or folders you want to include in your ClearFeed knowledge base.
+
+If you encounter any issues during the setup process or have further questions, you can contact ClearFeed support via email at support@clearfeed.ai or through the Slack channel. They'll be happy to assist you with any questions or concerns you may have regarding the setup of additional knowledge sources.",https://docs.clearfeed.ai/clearfeed-help-center/answers/indexing-knowledge-sources/other-supported-ks
+"I'm an agent and I want to filter requests based on specific criteria, but I'm not sure how to use the slash commands. Can you help me understand how to filter requests by assignee, status, and channel using the slash commands?","Sure, I'd be happy to help you with using slash commands to filter requests! Here's a breakdown of the process:
+
+To filter requests by assignee, status, and channel, you can use the following slash command:
+
+```
+/cf requests --assignee @[assignee_name] --status=[status] --channel=[channel_name]
+```
+
+Here's what each part of the command means:
+
+- `--assignee`: This flag is used to filter requests by the assignee. You can tag the users using the @ symbol. For example, `@Jaynil Pandya` would filter requests assigned to Jaynil Pandya.
+
+- `--status`: This flag is used to filter requests by their status. Allowed values include `open`, `in_progress`, `closed`, and `on_hold`. For instance, `--status=on_hold` would filter requests that are on hold.
+
+- `--channel`: This flag is used to filter requests by the channel they were raised in. You can tag the channels using the # symbol. For example, `#request-sandbox` would filter requests from the 'request-sandbox' channel.
+
+By combining these flags, you can create powerful filters to quickly find the requests you're looking for. For more information on using slash commands, you can refer to the [ClearFeed Help Center](https://docs.clearfeed.ai/clearfeed-help-center/product-features/collections).
+
+I hope this helps! If you have any further questions or need clarification, feel free to ask.",https://docs.clearfeed.ai/clearfeed-help-center/manage-requests/clearfeed-slack-app
+How can I view the average response time for all requests in the last 30 days?,"To view the average response time for all requests in the last 30 days, follow these steps:
+
+1. Click on the Insights icon on the left navigation bar.
+2. In the 'In Request Tab' section, select 'Response Time' as the metric.
+3. Use the date filter to select the 'Last 30 days' range.
+4. The report will display the average response time for all requests within the specified time period.
+
+Note: You can also use the breakdown and filtering options to further customize the report. For example, you can filter by channel, status, or priority to get more specific insights.",https://docs.clearfeed.ai/clearfeed-help-center/clearfeed-helpdesk/reporting/reporting-overview
+"I'm trying to integrate ClickUp with ClearFeed, but I'm not sure how to set it up. Can you provide a step-by-step guide on how to integrate the two platforms?","Sure! Here's a step-by-step guide on how to integrate ClickUp with ClearFeed:
+
+1. Navigate to the Settings page in ClickUp (Gear icon in the lower left) and select the Integrations tab.
+2. Click on the 'Connect' button next to ClickUp.
+3. Log in to ClickUp if you haven't already.
+4. Choose the ClickUp workspace you want to connect with ClearFeed and click 'Connect Workspace'.
+5. You should now be redirected to ClearFeed with a success message.
+
+Note: Currently, you can only connect one ClickUp workspace to a ClearFeed account.
+
+Once the integration is set up, you can enable ticketing and choose ClickUp as the ticketing integration. You can then select the trigger mode for ticket creation, either emoji-based or automatic. The document provides further details on how to create tickets manually or automatically, and the various functionalities and sync settings available. For more information, please refer to the [ClearFeed Help Center](https://docs.clearfeed.ai/clearfeed-help-center).
+
+If you have any further questions or need more information, feel free to ask!",https://docs.clearfeed.ai/clearfeed-help-center/integrations/clickup
+"How can I enable CSAT surveys for a specific collection in ClearFeed, and who can respond to these surveys?","To enable CSAT surveys for a specific collection in ClearFeed, follow these steps:
+
+1. Navigate to the collection for which you want to enable CSAT surveys.
+2. Go to the Settings section.
+3. Scroll down to the CSAT Settings and toggle ON the option to 'Enable CSAT survey'.
+4. Choose how you want to send the survey: either 'For all requests' or 'Only for requests with tickets'.
+5. Modify the CSAT Survey Question and Additional Comments as per your requirements.
+
+Regarding who can respond to these surveys, any user on the request channel who is not set as a ""Responder"" in ClearFeed will be able to respond. This means that non-responders on the request channel can add and respond to the ClearFeed CSAT Survey. To understand the responder settings for your collections, you can refer to the guide [here](https://clearfeed.ai/clearfeed-help-center/account-setup/collections#responder-settings).
+
+If you have any further questions or need more information about ClearFeed's CSAT feature, please don't hesitate to ask.",https://docs.clearfeed.ai/clearfeed-help-center/clearfeed-helpdesk/csat-survey
+"I want to use the GPT-powered answers feature, but I'm not sure how to index my knowledge source. Can you guide me through the process and provide information on the supported knowledge sources?","Sure, I'd be happy to help you with indexing your knowledge source for ClearFeed's GPT-powered answers. Here's a step-by-step guide:
+
+1. **Access the ClearFeed web app**: You'll need to log in to the ClearFeed web app, which is the platform's online interface.
+2. **Add your Knowledge Source**: Navigate to the section where you can add and manage knowledge sources. This is where you'll provide details about the source you want to index.
+3. **Provide Source Information**: When adding a knowledge source, you'll need to input specific details. This includes the type of knowledge source (public or private), the platform it's hosted on (e.g., Confluence, Freshdesk, Zendesk, etc.), and any necessary access credentials or permissions.
+
+ClearFeed supports a wide range of knowledge sources, both public and private. Here's a breakdown of the supported platforms:
+
+**Public Knowledge Sources**:
+- Public knowledge sources are those that are freely accessible to anyone without requiring specific permissions. These sources can be indexed by ClearFeed to enhance its GPT-powered answers.
+
+**Private Knowledge Sources**:
+- Confluence
+- Freshdesk
+- Zendesk
+- Notion
+- Slack channels
+- Google Drive (including Docs, PDFs, and Sheets)
+- Other supported knowledge sources (for a full list, refer to the provided link in the document)
+
+If you encounter any issues or have questions about indexing a specific knowledge source, you can reach out to ClearFeed's support team via email at support@clearfeed.ai or connect with them on Slack. They will be able to provide further assistance and ensure that your knowledge source is properly indexed for the GPT-powered answers feature.",https://docs.clearfeed.ai/clearfeed-help-center/answers/indexing-knowledge-sources
+"I'm trying to set up the ClearFeed-Freshdesk integration, but I'm not sure how to enable ticketing. Can you guide me through the process?","Absolutely, I'd be happy to assist you with enabling ticketing for the ClearFeed-Freshdesk integration. Here's a step-by-step guide:
+
+1. **Open the Collection**: On the ClearFeed web application, navigate to the Collection where you want to enable ticketing.
+
+2. **Access Ticketing Settings**: Click on the `Settings` tab and expand the `Ticketing Settings` section.
+
+3. **Enable Ticketing and Select Freshdesk**: Enable the toggle and choose `Freshdesk` as the `Ticketing Integration`.
+
+4. **Choose Trigger Mode**: Decide whether you want to create tickets manually (using an emoji) or automatically for all new messages on a channel. 
+
+5. **Associate Requestor Email (Optional)**: If agents are filing tickets on behalf of customers or internal users, you can enable the 'Ask for Requestor Email' option. This allows you to associate the ticket with the requestor's email address instead of the agent's email.
+
+6. **Save the Settings**: Click on `Save` to finalize the integration setup.
+
+Once you've completed these steps, you should be able to create and manage Freshdesk tickets directly from Clear. If you need further assistance or have specific questions about the integration, feel free to ask!",https://docs.clearfeed.ai/clearfeed-help-center/integrations/freshdesk
+"I want to escalate an issue to Linear, but I'm not sure how to do it. Can you explain the process and the different options for syncing with Slack?","To escalate an issue to Linear, you can follow these steps: 
+
+1. Go to the Slack message you want to escalate and select ClearFeed Actions from the shortcuts.
+2. Choose the 'File a Linear issue' option.
+3. Select the messages in the thread that you want to include in the Linear issue. Note that attachments, such as images, will only be sent as Slack links.
+4. Choose the Linear team, edit the title and description, and assign a user from Linear to the issue.
+5. Set the priority level from Linear.
+6. If you want to post Linear issue details to a specific Slack channel, select the corresponding checkbox. This will allow you to sync issue comments and status updates between Linear and Slack.
+
+Please note that Linear integration only supports public teams, and attachments will be sent as links from Slack. If you have any further questions or need assistance, feel free to reach out to our support team.",https://docs.clearfeed.ai/clearfeed-help-center/integrations/linear/escalating-to-linear
+"I'm trying to use the Quick Replies feature on Slack, but I can't find it. When will it be available for Slack users?","Thank you for reaching out! Quick Replies is a feature that allows you to create text templates for responding to requests. While it is currently available on the ClearFeed web app, it is not yet available on Slack. However, the feature is coming soon to Slack, as mentioned in the document. You can stay updated by checking the [ClearFeed web app](https://web.clearfeed.app/quick-replies) for the latest information on the release of Quick Replies for Slack. We appreciate your patience and understanding while we work on bringing this feature to you.",https://docs.clearfeed.ai/clearfeed-help-center/clearfeed-helpdesk/quick-replies
+How can I set up an SLA policy for my team's support operations?,"To set up an SLA policy for your team's support operations, follow these steps:
+
+1. Access the SLA Settings: Navigate to the **Profile icon** in the bottom left corner of the navigation bar and select **Settings → SLA Settings**.
+
+2. Business Schedules: Set your business days, hours, and holidays. You can also create multiple schedules for different collections. Learn how to link a schedule to a collection [here](/clearfeed-help-center/account-setup/collections#business-schedule-and-sla-settings).
+
+3. SLA Policies: Set target service levels for different priorities, such as first response time, resolution time, and one-touch resolution. You can add multiple SLA policies and configure them at a Collection level. Learn how to configure SLA Policies for particular collections [here](/clearfeed-help-center/clearfeed-helpdesk/sla-management).
+
+4. Pro Tip: Consider setting up a workflow to ensure timely responses to requests. For example, if you set a 60-minute target for the first response, you can create a workflow that sends an alert to the triage channel or a shared Slack channel after 45 minutes if there's no response. This helps your team stay on top of requests and meet your SLA targets.
+
+For more information on SLA settings and metrics, refer to the [reporting](/clearfeed-help-center/clearfeed-helpdesk/reporting) section in the ClearFeed Help Center.",https://docs.clearfeed.ai/clearfeed-help-center/clearfeed-helpdesk/sla-management
+"I want to integrate my Google Drive with ClearFeed, but I'm not sure how to do it. Can you guide me through the process, especially the part about enabling GPT-powered answers?","Sure, I'd be happy to help you with the integration process! Here's a step-by-step guide to integrate ClearFeed with Google Drive and enable GPT-powered answers:
+
+1. **Integrating with Google Drive**:
+   - Go to the [KBs](https://web.clearfeed.app/knowledge-sources) section on the ClearFeed web dashboard.
+   - Click on `Add Knowledge Source` and select Google Drive.
+   - Add a relevant name and tags to create the KS.
+   - After clicking on `Add`, you will be prompted to upload documents. Click on `Upload Documents` to proceed.
+   - Connect your Google account and select the files you want to index.
+
+2. **Adding Files from Drive**:
+   - Once your Knowledge Base is set up, you can add or remove files from Drive.
+   - Click on `Upload Documents`.
+   - You will be redirected to another page where you can select the files you want to add.
+   - These files will be visible on the ClearFeed web page and will be used as knowledge from your Drive.
+
+3. **Testing the Knowledge Source**:
+   - Once the knowledge source has been indexed, you can test the GPT-powered responses generated from it. Refer to the [Managing & Testing](https://clearfeed.ai/clearfeed-help-center/answers/managing-knowledge-sources) document for more information.
+
+4. **Enabling 'Answers' in Collection Settings**:
+   - Navigate to the collection settings where you want to enable GPT-Powered Answers.
+   - Enable 'Answers'. Refer to the [Virtual Agent & Agent Assistant](https://clearfeed.ai/clearfeed-help-center/answers/virtual-agent-in-request-channel) document for more information.
+
+Note: This integration is disabled if your ClearFeed account is created using a free domain (e.g., gmail.com, outlook.com).
+
+Let me know if you have any further questions or if you need assistance with any specific steps!",https://docs.clearfeed.ai/clearfeed-help-center/answers/indexing-knowledge-sources/google-drive
+"I'm trying to set up the Customer Portal for our company, but I'm not sure how to add new customers. Can you guide me through the process?","Sure! Here's a step-by-step guide to adding new customers to the ClearFeed Customer Portal:
+
+1. Go to the 'Customers' page: [Customers](https://web.clearfeed.app/customers)
+2. Click on 'Add New Customer'.
+3. Provide the name of the customer.
+4. Select the Slack channels where requests from the customer will be monitored. Ensure that these channels are not assigned to another customer and are monitored by ClearFeed.
+5. Add email domains for users who will belong to this customer.
+
+By following these steps, you can easily add new customers to the Customer Portal, allowing them to track and manage their service requests.",https://docs.clearfeed.ai/clearfeed-help-center/account-setup/customer-portal
+"I'm considering using ClearFeed for our internal helpdesk, but I'm not sure if it's the right fit. Can you explain the differences between ClearFeed's internal helpdesk and integration products, and how they are priced?","ClearFeed's internal helpdesk is a standalone helpdesk built on Slack, allowing agents to manage their entire workflow and reporting within the platform. It serves as the primary ticketing system, with features to integrate with other ticketing and task management systems. The pricing for this product is based on the number of agents using the platform.
+
+On the other hand, ClearFeed's integration product is a bi-directional integration between Slack and ticketing/engineering systems. In this case, the agent's workflow and reporting are managed in their primary ticketing system, which is generally not ClearFeed. The pricing for this product is based on the number of tickets created through the integration.
+
+If you're looking for a comprehensive helpdesk solution for your internal team, the internal helpdesk product might be a better fit. However, if you already have a primary ticketing system and want to integrate it with Slack, the integration product could be more suitable.",https://docs.clearfeed.ai/clearfeed-help-center/pricing-and-billing/billing
+How can I manage external tickets using the triage channel?,"To manage external tickets using the triage channel, you can follow these steps: 1. Whenever a Zendesk/Freshdesk ticket is created, it will be directed to the Triage channel of the respective Collection. 2. Replies from the triage channel will be synced to the external ticket and vice-versa. 3. You can view the Zendesk/Freshdesk ticket ID and URL on the triage channel block. 4. Use the 'Edit Zendesk/Freshdesk Ticket' button to manage external ticket properties. 5. Optionally, you can send internal comments to Zendesk (as internal notes) and Freshdesk (as private notes). 6. Use the 'Mark ticket as Solved' button to resolve the external ticket. 7. Use the 'View Form' button to view the form filled out by requestors when creating a ticket.",https://docs.clearfeed.ai/clearfeed-help-center/manage-requests/triage-channels/for-integrations
+"I'm confused about the billing for ClearFeed's Integrations product edition. Can you explain how the billing works for annual and monthly subscriptions, and how the usage bundle is determined?","Sure, I'd be happy to clarify the billing process for ClearFeed's Integrations product edition. 
+
+**Annual Billing:**
+To get the annual discount (e.g., 15%), you need to pay for the upfront purchase of ClearFeed Ticket Packages at the beginning of the contract period. You'll be charged once for a 1-year contract based on your selected plan.
+
+**Monthly Billing:**
+With ClearFeed monthly subscriptions, you pre-purchase the capacity to use a certain number of tickets for a given month. You'll be billed for minimum usage (50 tickets) at the start of the contract. At the end of each month, overages are charged based on actual usage, and adjustments are made accordingly. 
+
+**Usage Bundle:**
+Usage bundles are designed to offer quantity discounts. As the number of tickets increases, the per-unit pricing for tickets goes down. The most appropriate usage bundle is automatically detected and applied based on your ticket volume, ensuring the lowest pricing for a given ticket volume. 
+
+For more information on ClearFeed's pricing and billing, you can refer to the [Integrations](https://docs.clearfeed.ai/clearfeed-help-center/getting-started/readme) documentation.",https://docs.clearfeed.ai/clearfeed-help-center/pricing-and-billing/billing/integrations
+"I'm trying to understand the different data views in ClearFeed. Can you explain how the Bar chart and Line chart views represent data, and what additional information is provided when hovering over the bars or lines?","Sure, I'd be happy to help you understand the Bar chart and Line chart views in ClearFeed.
+
+In these views, dates are represented on the x-axis, and metric values are shown on the y-axis. When you select a breakdown, each breakdown property is labeled with a different color, making it easy to distinguish between them. For instance, if you're breaking down requests by priority, you might see 'High' requests in red, 'Normal' in blue, and 'Low' in green.
+
+Hovering over the bars or lines provides additional details, such as the specific date and the corresponding metric value. This feature is particularly useful when you want to quickly identify trends or outliers in your data without having to dig into the raw data.
+
+I hope this explanation helps you understand the Bar chart and Line chart views in ClearFeed. If you have any further questions or need more information, feel free to ask!",https://docs.clearfeed.ai/clearfeed-help-center/clearfeed-helpdesk/reporting/data-visualization
+"I'm trying to integrate Zendesk with ClearFeed, but I'm not sure how to set up the integration. Can you guide me through the process, including the prerequisites and the steps to follow?","Sure! Here's a step-by-step guide to integrate Zendesk with ClearFeed:
+
+1. **Prerequisites**: Before you begin, ensure that ClearFeed is integrated with Slack. The ClearFeed user connecting to Zendesk should have an account on Zendesk and use the same email address on both platforms. The integration can only be authorized by a Zendesk Admin.
+
+2. **Integrate Zendesk**:
+   - On the ClearFeed web app, navigate to the 'Settings' from the nav bar, then open the 'Integrations' section.
+   - Click on the 'Connect' button next to Zendesk, which will open a modal.
+   - Input your Zendesk sub-domain in the modal and click 'Connect'.
+   - You'll be redirected to Zendesk's sign-in page. Fill in your credentials and sign in.
+   - After signing in, you'll be redirected back to ClearFeed, and your integration will be completed.
+
+3. **Enable Ticketing**:
+   - On the ClearFeed web application, open the Collection where you want to enable Ticketing.
+   - Click on the 'Settings' tab and expand the 'Ticketing Settings' section.
+   - Enable the toggle and choose 'Zendesk' as the 'Ticketing Integration'.
+   - Choose the Trigger Mode: 'Emoji' (Manual) or 'Automatic'.
+   - If you select 'Emoji', create tickets when the configured emoji is used on a message. If you choose 'Automatic', create tickets for all new messages on a channel.
+   - You can also enable the 'Ask for Requestor Email' checkbox to associate a separate requestor email for tickets initiated by responders.
+   - Click 'Save' to save the integration successfully.
+
+By following these steps, you'll be able to integrate Zendesk with ClearFeed and enable ticketing. If you have any further questions or need more information, feel free to ask!",https://docs.clearfeed.ai/clearfeed-help-center/integrations/zendesk
